@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trang chủ - Cổng thông tin bộ y tế</title>
+    <meta charset="UTF-8">
+    <!-- SHOW -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            color: #333333;
+        }
+
+        body {
+            display: block;
+            width: auto;
+            background-color: #eee;
+            text-decoration: none;
+            /* color: #333333; */
+            line-height: 1.4em;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        #wrapper {
+            margin: 0 auto;
+            /* overflow-x: hidden; */
+        }
+
+        /* banner */
+        @media screen and (max-width: 991px) {
+
+            #wrapper,
+            #header .container {
+                width: 100%;
+                margin: 0;
+                padding: 0 !important;
+            }
+        }
+
+        @media screen and (min-width:992px) {
+
+            #wrapper,
+            #header .container,
+            #short-content .container {
+                width: 970px;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+
+            #wrapper,
+            #header .container,
+            #short-content .container {
+                width: 1170px;
+            }
+        }
+
+        #banner {
+            background: #d10229 url('https://moh.gov.vn/byt-theme/images/banner.png') no-repeat center top;
+            width: auto;
+            height: 108px;
+        }
+
+        #banner .container {
+            width: auto;
+            height: 94px;
+            padding: 0 10px;
+        }
+
+        #banner .container::before,
+        #banner .container::after {
+            content: "";
+            display: table;
+        }
+
+        #banner .row {
+            width: auto;
+            height: 94px;
+        }
+
+        #banner .container::after,
+        #banner .row {
+            clear: both;
+        }
+
+        body .img_bannerName {
+            width: 50%;
+            height: auto;
+        }
+
+        body .img_logo {
+            margin-top: 17px !important;
+            display: block;
+        }
+
+        #banner a {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Header */
+        #header {
+            position: relative;
+            width: 100%;
+            z-index: 199 !important;
+            height: 38px;
+            line-height: 38px;
+        }
+
+        #header>.container {
+            height: 38px;
+            background-color: #fff;
+            border-bottom: 1px solid #eeeeee;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #header #mainMenu-trigger {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            height: 50px;
+            height: 38px;
+            z-index: 1;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        @media (max-width: 991px) {
+            #header #mainMenu-trigger {
+                position: relative;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #header #mainMenu {
+                visibility: hidden;
+            }
+        }
+
+        #mainMenu-trigger-button {
+            width: 18px;
+            height: 100%;
+            border: 0;
+            padding: 0;
+            background: none;
+        }
+
+        #header img {
+            width: 18px;
+            height: 21px;
+        }
+
+        #language {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            /* float: none; */
+        }
+
+        /* Navigation */
+        #header .container::before,
+        #header .container::after {
+            content: "";
+            display: table;
+        }
+
+        #mainMenu {
+            width: auto;
+            height: 38px;
+            padding: 0;
+        }
+
+        #mainMenu>.container {
+            padding: 0 !important;
+            width: auto;
+            height: 38px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #menubar {
+            float: left;
+            height: 38px;
+            flex: 1;
+            padding: 0 5px;
+        }
+
+        #menubar ul {
+            list-style-type: none;
+            padding: 0;
+            height: 38px;
+        }
+
+        #menubar ul li {
+            float: left;
+            height: auto;
+            line-height: 38px;
+            margin-left: 6px;
+            position: relative;
+        }
+
+        #menubar ul li>a {
+            padding: 11px 14px;
+        }
+
+        #menubar ul .selected>a {
+            border-bottom: 3px solid #ce0427;
+        }
+
+        #menubar ul li a:hover {
+            color: #d10229;
+        }
+
+        #header a {
+            color: #333333;
+            /* text-decoration: none; */
+            padding: 0;
+            margin: 0;
+        }
+
+        #menubar .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            float: left;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            min-width: 180px;
+            list-style: none;
+            font-size: 14px;
+            text-align: left;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        #menubar .dropdown:hover .sub-menu {
+            display: flex;
+            width: 320px;
+            height: auto;
+            flex-direction: column;
+        }
+
+        /* Search-box */
+        #search-box {
+            height: fit-content;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-box>.container {
+            padding: 0 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        @media (max-width: 991px) {
+            #search-box>.container {
+                flex-direction: column;
+            }
+        }
+
+        #search-box>.container::before,
+        #search-box>.container::after {
+            content: "";
+            display: table;
+        }
+
+        #time {
+            flex: 1;
+            width: 50%;
+        }
+
+        #search {
+            width: 50%;
+        }
+
+        #time .container {
+            padding: 0 15px;
+            margin: 10px 0;
+        }
+
+        #search .container {
+            padding: 0 15px;
+            margin: 5px 0;
+
+        }
+
+        @media (max-width: 991px) {
+
+            #time,
+            #search {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 979px) {
+            #search input[type="text"] {
+                font-size: 18px;
+                height: auto;
+                line-height: normal;
+                max-width: 100%;
+            }
+        }
+
+        #search .text-right {
+            text-align: right !important;
+        }
+
+        #search input {
+            margin-right: -5px !important;
+            padding: 3px 4px 4px;
+            border: 0;
+            border-radius: 5px 0 0 5px;
+            height: 26px;
+            width: 185px;
+        }
+
+        #search button {
+            background: #4792d3;
+            border: 0;
+            text-transform: none;
+            font-weight: normal;
+            font-size: 12px;
+            margin-top: 0px;
+            height: 26px;
+            color: white;
+            padding: 2px;
+            border-radius: 0 3px 3px 0;
+            width: 60px;
+        }
+
+        /* Short-content */
+        #short-content {
+            padding-top: 10px !important;
+            display: block;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        #short-content .container,
+        #footer .container {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .container::before,
+        .container::after,
+        .row::before,
+        .row::after,
+        .row-icon::before,
+        .row-icon::after,
+        .list-heading li::before,
+        .list-heading li::after,
+        .news-heading::before,
+        .news-heading::after,
+        #short-content .row-content-top::before,
+        #short-content .row-content-top::after {
+            content: " ";
+            display: table;
+        }
+
+        #short-content .row-content {
+            /* margin-left: -15px; */
+            margin-right: -15px;
+            margin-bottom: 20px !important;
+            /* box-sizing: border-box; */
+            display: flex;
+            flex-direction: row;
+        }
+
+        #short-content .row-content-top,
+        #short-content .row .content-top,
+        #row-left,
+        #footer-content .text1,
+        #footer-content .text2 {
+            position: relative;
+            padding-left: 10px;
+            padding-right: 10px;
+            min-height: 1px;
+        }
+
+        #short-content .row .content-top,
+        #short-content .row .image-top {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 770px) {
+
+            #short-content .row-content {
+                width: 100% !important;
+                flex-direction: column !important;
+            }
+        }
+
+        @media (max-width: 770px) {
+
+            #short-content .row,
+            #short-content .row-icon,
+            #main-content .row,
+            #row-right .row,
+            .col1,
+            .col2,
+            .row {
+                width: 100%;
+                flex-direction: column !important;
+            }
+        }
+
+        @media (max-width: 770px) {
+
+            #short-content .row-icon {
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 992px) {
+
+            #short-content .row-content-top,
+            #short-content .row .image-top,
+            .row-icon2,
+            #row-right,
+            #row-right .col1,
+            #row-right .col3,
+            .untouchable,
+            #footer-content .text1 {
+                flex: 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+
+            #short-content .row-content-img,
+            .row-icon1,
+            .row-icon3,
+            #row-left,
+            .icon {
+                flex: 0 0 25%;
+            }
+        }
+
+        @media (min-width: 992px) {
+
+            #short-content .row .content-top,
+            #row-right .col4 {
+                flex: 0 0 42%;
+            }
+        }
+
+        @media (max-width: 991px) {
+
+            #short-content .row .image-top,
+            .activity-news .news-image img,
+            .general-news .news-image img,
+            .excutive-direction-news .news-image img,
+            .local-news .news-image img {
+                height: auto;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #short-content .row .image-top {
+                height: 300px;
+            }
+        }
+
+        #short-content .row,
+        .row-icon,
+        #main-content .row,
+        #footer-content .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #short-content .row .image-top,
+        #main-content .row,
+        .item {
+            position: relative;
+        }
+
+        #short-content .row .image-top>a {
+            width: auto;
+            height: auto;
+        }
+
+        #short-content .row .image-top img {
+            height: auto;
+            max-height: 300px;
+        }
+
+        #short-content .row p a {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: block;
+            padding: 10px;
+            font-size: 14px;
+            color: #fff;
+            background: url('https://moh.gov.vn/byt-theme/images/overley.png') repeat-x left bottom;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        #short-content .row p a {
+            color: #fff;
+        }
+
+        .news-heading {
+            background: #4792d3;
+            margin-bottom: 15px !important;
+        }
+
+        .news-heading h2 {
+            background: #4792d3;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 7px 15px 7px 10px;
+            display: inline-block;
+            position: relative;
+            text-transform: uppercase;
+            margin-top: 0px;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+
+        .news-heading h2 a,
+        .untouchable p,
+        .icon p {
+            color: #fff;
+        }
+
+        span {
+            width: 14px;
+            height: 7px;
+            display: block;
+            position: absolute;
+            bottom: -7px;
+            left: 10px;
+            background: url('https://moh.gov.vn/byt-theme/images/arrow.png') no-repeat;
+        }
+
+        #short-content .list-heading {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .list-heading li {
+            width: 100%;
+            display: block;
+            padding: 5px 0;
+            list-style-type: none;
+        }
+
+        .list-heading li a {
+            background: url('https://moh.gov.vn/byt-theme/images/bullet-1.png') no-repeat left 8px;
+            padding-left: 10px;
+            display: block;
+        }
+
+        .row-icon {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .format {
+            margin-bottom: 20px !important;
+        }
+
+        /* Main content */
+        /* row-right */
+        /* row1 */
+        .clear-fix::before,
+        .clear-fix::after {
+            content: "";
+            display: table;
+        }
+
+        .clear-fix::after {
+            clear: both;
+        }
+
+        #main-content>.container {
+            width: 100%;
+            max-width: 100%;
+            background-color: #fff;
+            /* padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: unset; */
+        }
+
+        .order:nth-child(1) {
+            order: 2;
+            /* Phần tử thứ hai sẽ xuất hiện đầu tiên */
+        }
+
+        .order:nth-child(2) {
+            order: 1;
+            /* Phần tử thứ nhất sẽ xuất hiện thứ hai */
+        }
+
+        @media (min-width: 992px) {
+            #row-right .col2 {
+                flex: 0 0 50%;
+            }
+        }
+
+        #row-right .row>.col1,
+        #row-right .row>.col2 {
+            padding: 0 15px;
+        }
+
+        #row-right .row,
+        .col1,
+        .col2,
+        #row-left,
+        .wrap,
+        .menu,
+        .banner,
+        .link,
+        .vote,
+        .nothing {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+        }
+
+        @media (min-width: 992px) {
+
+            .activity-news .news-image img,
+            .general-news .news-image img,
+            .excutive-direction-news .news-image img,
+            .local-news .news-image img {
+                height: 150px;
+            }
+        }
+
+        #row-right ul li {
+            list-style-type: none;
+        }
+
+        .col3 {
+            padding-right: 10px;
+        }
+
+        .col4 {
+            padding-left: 10px;
+        }
+
+        .list-news {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .clear-fix {
+            min-width: 100%;
+            max-width: 100%;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #d7d7d7;
+        }
+
+        .fix1 {
+            border-top: 1px solid #d7d7d7;
+        }
+
+        .fix2 {
+            border-bottom: unset;
+        }
+
+        /* row2 */
+        .container-heading {
+            padding: 0 15px;
+        }
+
+        .container-heading .news-heading {
+            background-color: #fff;
+        }
+
+        .col-row2 {
+            margin-bottom: 10px;
+            padding: 0 15px;
+        }
+
+        /* row3 */
+        .col-row3 {
+            padding: 0 15px;
+        }
+
+        .col-row3 .row .container {
+            margin-bottom: 15px;
+        }
+
+        /* row4 */
+        .news-content {
+            display: block !important;
+        }
+
+        .news-content .wrap {
+            padding: 0 15px;
+        }
+
+        .news-content h2 {
+            width: 100%;
+        }
+
+        .icon {
+            text-align: right;
+        }
+
+        /* table */
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td,
+        th {
+            border: solid 1px #ddd;
+            border-collapse: collapse;
+            padding: 4px;
+        }
+
+        .table>thead>tr>th,
+        .table>thead>tr>td,
+        .table>tbody>tr>th,
+        .table>tbody>tr>td,
+        .table>tfoot>tr>th,
+        .table>tfoot>tr>td {
+            padding: 8px;
+            line-height: 1.42857;
+            vertical-align: top;
+            border-top: 1px solid #dddddd;
+        }
+
+        @media (max-width: 400px) {
+
+            th,
+            td {
+                padding: 3px !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            td {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            #row-right .news-content .wrap {
+                padding: 8px !important;
+            }
+        }
+
+        .table>thead>tr>th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dddddd;
+        }
+
+        thead th {
+            background: #d8d8d8;
+            color: #1057ae;
+        }
+
+        td {
+            font-size: 16px;
+        }
+
+        @media (max-width:400px) {
+            .table {
+                overflow-x: hidden;
+            }
+        }
+
+        /* row-left */
+        /* menu */
+        #row-left .container {
+            position: relative;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item {
+            border-color: #2974b5;
+            border-style: solid;
+            border-width: 0px 0px 1px 0px;
+            background: #4792d3;
+        }
+
+        .title {
+            position: relative;
+            padding: 12px 35px 12px 15px;
+            font-size: 13px;
+            line-height: 22px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.06);
+            margin: 0;
+        }
+
+        .item a {
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+
+        .icon-angle-right {
+            font-size: 120%;
+            margin-right: 0 !important;
+            vertical-align: top;
+            position: absolute;
+            right: 12px;
+            top: 16px;
+        }
+
+        .icon-angle-right img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .item-content {
+            padding: 5px 20px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 991px) {
+            .item-content {
+                position: absolute;
+                width: 210px;
+                top: 0;
+                right: -205px;
+                background: #4792d3;
+                display: none;
+                z-index: 2;
+            }
+        }
+
+        @media (min-width: 991px) {
+            .item:hover .item-content {
+                display: block;
+            }
+        }
+
+        .item-content a {
+            display: block;
+            color: #eee;
+            padding: 6px 0;
+            font-size: 13px;
+            border-bottom: 1px dotted #08366e;
+        }
+
+        .item-content a:nth-last-child(1) {
+            border-bottom: 0;
+        }
+
+        /* banner */
+        .m-b {
+            margin-bottom: 10px !important;
+        }
+
+        .banner .m-b img {
+            vertical-align: middle;
+        }
+
+        .banner .container {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* link */
+        .link .news-heading {
+            background-color: unset;
+            border-bottom: 2px solid #4792d3;
+        }
+
+        .m-l {
+            margin-top: 10px !important;
+        }
+
+        select {
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            background-image: url('https://moh.gov.vn/byt-theme/images/dropdown-arrow.png') !important;
+            background-repeat: no-repeat;
+            background-position: right center;
+            box-shadow: none;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ececec;
+            transition: all .3s ease;
+        }
+
+        .link .link-select {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            width: 100%;
+            padding: 8px 30px 8px 10px;
+        }
+
+        /* vote */
+        .vote .wrap {
+            background: #e6e6e6;
+            position: relative;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 60px 15px 10px;
+        }
+
+        .vote h2 {
+            margin-top: 0px;
+            position: absolute;
+            left: -6px;
+            top: 16px;
+            height: 39px;
+            width: 179px;
+            background: url('https://moh.gov.vn/byt-theme/images/vote-bg.png') no-repeat;
+            color: #242359;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-style: italic;
+            padding: 7px 0px 5px 10px;
+        }
+
+        .vote h3 {
+            margin-bottom: 1.04em;
+            font-size: 14px;
+            margin-top: 0px;
+        }
+
+        .vote ul {
+            list-style: none;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .vote .clear-fix {
+            padding: 3px 0;
+            border-bottom: unset;
+        }
+
+        .vote .vote-choice {
+            display: inline-block;
+            margin-bottom: 0;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 6px 12px;
+            line-height: 1.42857;
+            border-radius: 4px;
+            user-select: none;
+            background: #ffc407;
+            color: #242359;
+            border: 0;
+            text-shadow: none !important;
+            text-transform: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .nothing-box {
+            min-height: 2.5em;
+            position: relative;
+        }
+
+        /* Footer */
+        #footer {
+            clear: both;
+            position: relative;
+            font-size: 13px;
+            background-color: #f6f6f7;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        #footer-nav {
+            background: #2777bc;
+        }
+
+        #footer-nav a {
+            color: #fff;
+            display: inline-block;
+            padding: 10px 15px;
+        }
+
+        #footer-content {
+            background: #135894;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        @media (max-width: 1100px) {
+
+            #footer-content .row {
+                width: 100%;
+                flex-direction: column !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+
+            #footer-content .text2 {
+                flex: 0 0 66%;
+            }
+        }
+
+        #footer-content p {
+            color: #fff;
+            margin-bottom: 0;
+            font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+            font-size: 1em;
+            font-style: normal;
+            font-weight: 400;
+            text-transform: none;
+            line-height: 1.6;
+            letter-spacing: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Banner -->
+        <div id="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="img_bannerName">
+                        <a class="img_logo" href="https://moh.gov.vn/">
+                            <img alt="Cổng thông tin Bộ Y tế"
+                                src="https://moh.gov.vn/image/layout_set_logo?img_id=105406&t=1696850262580" width="295"
+                                height="77">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header -->
+        <div id="header">
+            <div class="container">
+                <!-- Navigation resposnive trigger -->
+                <div id="mainMenu-trigger">
+                    <button id="mainMenu-trigger-button">
+                        <img src="https://static.thenounproject.com/png/3527105-200.png" alt="icon-reorder">
+                        <!-- <div class="icon-reorder"></div> -->
+                    </button>
+                    <div id="language">
+                        <div style="display: inline-block;">Ngôn ngữ: </div>
+                        <a href="https://moh.gov.vn/en_US/web/ministry-of-health" class title="Tiếng Anh">EN</a>
+                        &nbsp;|&nbsp;
+                        <a href="https://moh.gov.vn/vi_VN" class title="Tiếng Việt">VI</a>
+                    </div>
+                </div>
+                <!-- End Navigation resposnive trigger -->
+                <!-- navigation -->
+                <div id="mainMenu">
+                    <div class="container">
+                        <div id="menubar">
+                            <ul>
+                                <li class="selected">
+                                    <a href="https://moh.gov.vn/">
+                                        <b>TRANG CHỦ</b>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">
+                                        <b>GIỚI THIỆU</b>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Biểu tượng của Bộ Y tế</a></li>
+                                        <li><a href="#">Lãnh đạo đương nhiệm</a></li>
+                                        <li><a href="#">Chức năng, nhiệm vụ, quyền hạn của Bộ Y tế</a></li>
+                                        <li><a href="#">Cơ cấu tổ chức</a></li>
+                                        <li><a href="#">Thông tin liên hệ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="layout1"><a href="#"><b>SƠ ĐỒ TRANG</b></a></li>
+                                <li class="layout2"><a href="#"><b>THƯ ĐIỆN TỬ</b></a></li>
+                                <li class="layout3"><a href="#"><b>QUẢN LÝ VĂN BẢN ĐIỆN TỬ</b></a></li>
+                            </ul>
+                        </div>
+                        <div id="language">
+                            <div style="display: inline-block;">Ngôn ngữ:</div>
+                            <a href="https://moh.gov.vn/en_US/web/ministry-of-health" class title="Tiếng Anh">EN</a>
+                            &nbsp;|&nbsp;
+                            <a href="https://moh.gov.vn/vi_VN" class title="Tiếng Việt">VI</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Navigation -->
+            </div>
+        </div>
+        <!-- Main -->
+        <div id="main">
+            <!-- Search Box -->
+            <div id="search-box">
+                <div class="container">
+                    <div id="time">
+                        <div class="container">
+                            <p><i>Thứ tư, 11/10/2023</i></p>
+                        </div>
+                    </div>
+                    <div id="search">
+                        <form class="container">
+                            <div class="text-right">
+                                <input type="text" class="input-search">
+                                <button type="submit">Tìm kiếm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Short content top -->
+            <div id="short-content">
+                <div class="container">
+                    <div class="row-content">
+                        <div class="row-content-top">
+                            <div class="row">
+                                <div class="image-top">
+                                    <!-- Wrap slide -->
+                                    <a href="https://bom.so/a2KFJu">
+                                        <img style="width: 100%; max-width: 100%;" src="https://bom.so/EIBana" alt="">
+                                    </a>
+                                    <p>
+                                        <a href="https://bom.so/a2KFJu">89,5% kiến nghị của cử trị gửi đến kỳ họp thứ 5,
+                                            Quốc hội khóa XV đã được giải quyết, trả lời</a>
+                                    </p>
+                                </div>
+                                <div class="content-top">
+                                    <div class="news-heading">
+                                        <h2>
+                                            <a href="https://moh.gov.vn/web/guest/tin-noi-bat">
+                                                TIN NỔI BẬT
+                                            </a>
+                                            <span></span>
+                                        </h2>
+                                    </div>
+                                    <ul class="list-heading">
+                                        <li class="news-top">
+                                            <a href="https://bom.so/LgUTNu">
+                                                Bổ sung, kiện toàn Ban Chấp hành Đảng bộ Khối các cơ quan Trung ương
+                                            </a>
+                                        </li>
+                                        <li class="news-top">
+                                            <a href="https://bom.so/Mxr0kp">
+                                                Bộ trưởng Bộ Y tế Đào Hồng Lan tiếp các chuyên gia của Quỹ từ thiện
+                                                Bloomberg
+                                            </a>
+                                        </li>
+                                        <li class="news-top">
+                                            <a href="https://bom.so/8g7IcF">
+                                                Đoàn công tác Bộ Y tế làm việc tại Lai Châu về phátn triển y dược cổ
+                                                truyền
+                                            </a>
+                                        </li>
+                                        <li class="news-top">
+                                            <a href="https://bom.so/SjkYbB">
+                                                Hội thảo khoa học đào tạo và nghiên cứu chuyên sâu Y dược cổ truyền kết
+                                                hợp Y dược hiện đại
+                                            </a>
+                                        </li>
+                                        <li class="news-top">
+                                            <a href="https://bom.so/WN6uvY">
+                                                Hội nghị khoa học toàn quốc: Bỏng, liền vết thương và phẫu thuật tạo
+                                                hình, thẩm mỹ - tái tạo
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-content-img">
+                            <div class="container">
+                                <div class="wrap">
+                                    <div class="row">
+                                        <div class="format">
+                                            <a target="_blank" href="https://covid19.gov.vn/">
+                                                <img style="width: 100%; max-width: 100%;" src="https://bom.so/zVd80G">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-icon">
+                        <div class="row-icon1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="format">
+                                        <a target href="https://moh.gov.vn/web/guest/duong-day-nong">
+                                            <img style="width: 100%; max-width: 100%;" src="https://bom.so/rfurrf">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-icon2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="format">
+                                        <a target href="https://ncov.moh.gov.vn/">
+                                            <img style="width: 100%; max-width: 100%;" src="https://bom.so/GOwPzU">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-icon3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="format">
+                                        <a target href="https://capdodich.yte.gov.vn/map">
+                                            <img style="width: 100%; max-width: 100%;" src="https://bom.so/rReQMP">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main content -->
+            <div id="main-content">
+                <div class="container">
+                    <div class="row">
+                        <!-- Main right column -->
+                        <div id="row-right" class="order">
+                            <!-- row 1 -->
+                            <div class="row">
+                                <div class="col1">
+                                    <div class="wrap">
+                                        <!-- Activity news -->
+                                        <div class="activity-news">
+                                            <div class="wrap">
+                                                <div class="news-heading">
+                                                    <h2>
+                                                        <a href="https://bom.so/EetP31" title="Tin hoạt động">
+                                                            Tin hoạt động</a>
+                                                        <span></span>
+                                                    </h2>
+                                                </div>
+                                                <div class="news-image">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col3 fix">
+                                                                <a href="#">
+                                                                    <img src="https://bom.so/d16xbR"
+                                                                        style="width: 100%; max-width: 100%;">
+                                                                </a>
+                                                            </div>
+                                                            <div class="col4">
+                                                                <a style="font-weight: bold;"
+                                                                    href="https://bom.so/BNjhvW">Bộ trưởng Đào Hồng Lan
+                                                                    làm việc tại BVĐK tỉnh Bắc Giang: Bộ Y tế sẽ
+                                                                    giải...</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-news">
+                                                    <li class="clear-fix fix1" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo Tăng cường hệ thống chăm sóc sức khỏe tâm
+                                                            thần </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Bộ trưởng Bộ Y tế Đào Hồng Lan tiếp các chuyên gia
+                                                            của Quỹ từ thiện Bloomberg </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Đoàn công tác Bộ Y tế làm việc tại Lai Châu về phát
+                                                            triển y dược cổ truyền </a>
+                                                    </li>
+                                                    <li class="clear-fix fix2" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo khoa học đào tạo và nghiên cứu chuyên sâu
+                                                            Y dược cổ truyền kết hợp Y... </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- General-news -->
+                                        <div class="general-news">
+                                            <div class="wrap">
+                                                <div class="news-heading">
+                                                    <h2>
+                                                        <a href="https://bom.so/EetP31" title="Tin hoạt động">
+                                                            Tin hoạt động</a>
+                                                        <span></span>
+                                                    </h2>
+                                                </div>
+                                                <div class="news-image">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col3">
+                                                                <a href="#">
+                                                                    <img src="https://bom.so/d16xbR"
+                                                                        style="width: 100%; max-width: 100%;">
+                                                                </a>
+                                                            </div>
+                                                            <div class="col4">
+                                                                <a style="font-weight: bold;"
+                                                                    href="https://bom.so/BNjhvW">Bộ trưởng Đào Hồng Lan
+                                                                    làm việc tại BVĐK tỉnh Bắc Giang: Bộ Y tế sẽ
+                                                                    giải...</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-news">
+                                                    <li class="clear-fix fix1" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo Tăng cường hệ thống chăm sóc sức khỏe tâm
+                                                            thần </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Bộ trưởng Bộ Y tế Đào Hồng Lan tiếp các chuyên gia
+                                                            của Quỹ từ thiện Bloomberg </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Đoàn công tác Bộ Y tế làm việc tại Lai Châu về phát
+                                                            triển y dược cổ truyền </a>
+                                                    </li>
+                                                    <li class="clear-fix fix2" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo khoa học đào tạo và nghiên cứu chuyên sâu
+                                                            Y dược cổ truyền kết hợp Y... </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="wrap">
+                                        <!-- Excutive-direction-news -->
+                                        <div class="excutive-direction-news">
+                                            <div class="wrap">
+                                                <div class="news-heading">
+                                                    <h2>
+                                                        <a href="https://bom.so/EetP31" title="Tin hoạt động">
+                                                            Tin hoạt động</a>
+                                                        <span></span>
+                                                    </h2>
+                                                </div>
+                                                <div class="news-image">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col3">
+                                                                <a href="#">
+                                                                    <img src="https://bom.so/d16xbR"
+                                                                        style="width: 100%; max-width: 100%;">
+                                                                </a>
+                                                            </div>
+                                                            <div class="col4">
+                                                                <a style="font-weight: bold;"
+                                                                    href="https://bom.so/BNjhvW">Bộ trưởng Đào Hồng Lan
+                                                                    làm việc tại BVĐK tỉnh Bắc Giang: Bộ Y tế sẽ
+                                                                    giải...</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-news">
+                                                    <li class="clear-fix fix1" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo Tăng cường hệ thống chăm sóc sức khỏe tâm
+                                                            thần </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Bộ trưởng Bộ Y tế Đào Hồng Lan tiếp các chuyên gia
+                                                            của Quỹ từ thiện Bloomberg </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Đoàn công tác Bộ Y tế làm việc tại Lai Châu về phát
+                                                            triển y dược cổ truyền </a>
+                                                    </li>
+                                                    <li class="clear-fix fix2" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo khoa học đào tạo và nghiên cứu chuyên sâu
+                                                            Y dược cổ truyền kết hợp Y... </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Local-news -->
+                                        <div class="local-news">
+                                            <div class="wrap">
+                                                <div class="news-heading">
+                                                    <h2>
+                                                        <a href="https://bom.so/EetP31" title="Tin hoạt động">
+                                                            Tin hoạt động</a>
+                                                        <span></span>
+                                                    </h2>
+                                                </div>
+                                                <div class="news-image">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col3">
+                                                                <a href="#">
+                                                                    <img src="https://bom.so/d16xbR"
+                                                                        style="width: 100%; max-width: 100%;">
+                                                                </a>
+                                                            </div>
+                                                            <div class="col4">
+                                                                <a style="font-weight: bold;"
+                                                                    href="https://bom.so/BNjhvW">Bộ trưởng Đào Hồng Lan
+                                                                    làm việc tại BVĐK tỉnh Bắc Giang: Bộ Y tế sẽ
+                                                                    giải...</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-news">
+                                                    <li class="clear-fix fix1" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo Tăng cường hệ thống chăm sóc sức khỏe tâm
+                                                            thần </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Bộ trưởng Bộ Y tế Đào Hồng Lan tiếp các chuyên gia
+                                                            của Quỹ từ thiện Bloomberg </a>
+                                                    </li>
+                                                    <li class="clear-fix" style="min-height: 60px;">
+                                                        <a href="#"> Đoàn công tác Bộ Y tế làm việc tại Lai Châu về phát
+                                                            triển y dược cổ truyền </a>
+                                                    </li>
+                                                    <li class="clear-fix fix2" style="min-height: 60px;">
+                                                        <a href="#"> Hội thảo khoa học đào tạo và nghiên cứu chuyên sâu
+                                                            Y dược cổ truyền kết hợp Y... </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 2 -->
+                            <div class="row">
+                                <div class="container">
+                                    <div class="container-heading">
+                                        <div class="news-heading">
+                                            <h2>
+                                                <a href="https://bom.so/EetP31" title="Tin liên quan">
+                                                    TIN LIÊN QUAN</a>
+                                                <span></span>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <!-- col1 -->
+                                        <div class="col-row2">
+                                            <a href="https://bom.so/GukGAQ">
+                                                <img src="https://moh.gov.vn/image/journal/article?img_id=1684404"
+                                                    style="width: 100%; max-width: 100%; height: 99.1406px; max-height: 99.1406px;">
+                                            </a>
+                                            <a href="https://bom.so/GukGAQ"> Bổ sung, kiện toàn Ban Chấp hành Đảng bộ
+                                                Khối các cơ quan Trung ương </a>
+                                        </div>
+                                        <!-- col2 -->
+                                        <div class="col-row2">
+                                            <a href="https://bom.so/5VF4sd">
+                                                <img src="https://moh.gov.vn/image/journal/article?img_id=1683224"
+                                                    style="width: 100%; max-width: 100%; height: 99.1406px; max-height: 99.1406px;">
+                                            </a>
+                                            <a href="https://bom.so/5VF4sd"> Bản tin phòng chống dịch COVID-19 ngày 8/10
+                                                của Bộ Y tế </a>
+                                        </div>
+                                        <!-- col3 -->
+                                        <div class="col-row2">
+                                            <a href="https://bom.so/gZzouB">
+                                                <img src="https://moh.gov.vn/image/journal/article?img_id=1682904"
+                                                    style="width: 100%; max-width: 100%; height: 99.1406px; max-height: 99.1406px;">
+                                            </a>
+                                            <a href="https://bom.so/gZzouB"> Bộ Y tế: Kiên quyết xử lý các trường hợp vi
+                                                phạm về khí oxy y tế </a>
+                                        </div>
+                                        <!-- col4 -->
+                                        <div class="col-row2">
+                                            <a href="https://bom.so/DUMzXf">
+                                                <img src="https://moh.gov.vn/image/journal/article?img_id=1683214"
+                                                    style="width: 100%; max-width: 100%; height: 99.1406px; max-height: 99.1406px;">
+                                            </a>
+                                            <a href="https://bom.so/DUMzXf"> Bản tin phòng chống dịch COVID-19 ngày 7/10
+                                                của Bộ Y tế </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 3 -->
+                            <div class="row">
+                                <div class="col-row3">
+                                    <div class="wrap">
+                                        <div class="row">
+                                            <div class="container" style="width: 100%;">
+                                                <a target href="https://moh.gov.vn/dan-hoi-bo-truong-tra-loi">
+                                                    <img src="https://moh.gov.vn/documents/20182/0/phan-anh-kien-nghi--405605564831000.png"
+                                                        style="width: 100%; max-width: 100%;">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-row3">
+                                    <div class="wrap">
+                                        <div class="row">
+                                            <a target href="https://moh.gov.vn/gop-y-du-thao-van-ban">
+                                                <img src="https://moh.gov.vn/documents/20182/0/gopy--405173348898500.png"
+                                                    style="width: 100%; max-width: 100%;">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 4 -->
+                            <div class="row news-content">
+                                <div class="wrap">
+                                    <!-- news-heading -->
+                                    <div class="news-heading">
+                                        <h2>
+                                            <div class="row">
+                                                <div class="untouchable">
+                                                    <p>VĂN BẢN MỚI CÔNG BỐ</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <a target="_blank" href="http://emohbackup.moh.gov.vn/publish"
+                                                        title="Tin hoạt động">
+                                                        <p class="icon-search">
+                                                            <img src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-5.png"
+                                                                style="height: 19px; width: auto;vertical-align: middle;">
+                                                            TÌM KIẾM
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <span></span>
+                                        </h2>
+                                    </div>
+                                    <!-- table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="text-align: center;">Số hiệu</th>
+                                                <th scope="col" style="text-align: center;">Trích yếu nội dung</th>
+                                                <th scope="col" style="text-align: center;">Cơ quan</th>
+                                                <th scope="col" style="text-align: center;">Ngày ban hành
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="">9700/QLD-KD</td>
+                                                <td>
+                                                    <a class="limitwords" target="_blank"
+                                                        href="https://emohbackup.moh.gov.vn/publish/home?documentId=9253">
+                                                        Công văn đề nghị đăng tải dự thảo Thông tư ban hành Danh mục
+                                                        thuốc, NLLT, mỹ phẩm XNK kèm mã HS
+                                                    </a>
+                                                </td>
+                                                <td>Cục Quản lý Dược</td>
+                                                <td style=" text-align: center;">12/10/2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="">1374/VPB9</td>
+                                                <td>
+                                                    <a class="limitwords" target="_blank"
+                                                        href="https://emohbackup.moh.gov.vn/publish/home?documentId=9252">
+                                                        Công văn về việc đề nghị báo giá thực hiện các gói thầu hoạt
+                                                        động “Truyền thông về công tác y tế”
+                                                    </a>
+                                                </td>
+                                                <td>Bộ Y Tế</td>
+                                                <td style=" text-align: center;">10/10/2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="">3802/QĐ-BYT</td>
+                                                <td>
+                                                    <a class="limitwords" target="_blank"
+                                                        href="https://emohbackup.moh.gov.vn/publish/home?documentId=9250">
+                                                        Ban hành danh mục mã hãng sản xuất vật tư y tế phục vụ quản lý
+                                                        và giám định, thanh toán chi phí khám bệnh, chữa bệnh bảo hiểm y
+                                                        tế (Đợt 8)
+                                                    </a>
+                                                </td>
+                                                <td>Bộ Y Tế</td>
+                                                <td style=" text-align: center;">09/10/2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="">112/QĐ-TTMS</td>
+                                                <td>
+                                                    <a class="limitwords" target="_blank"
+                                                        href="https://emohbackup.moh.gov.vn/publish/home?documentId=9251">
+                                                        Về việc đính chính thông tin sản phẩm trúng thầu tại Quyết định
+                                                        số 93/Qđ-ttms ngày 29/8/2023 của Giám đốc Trung tâm Mua sắm
+                                                        thuốc Quốc gia về phê duyệt kết quả lựa chọn nhà thầu Gói thầu
+                                                        số 03: Cung cấp 18 mặt hàng thuốc cho các tỉnh miền Nam (mã
+                                                        hiệu: ĐTTT.03.2023)
+                                                    </a>
+                                                </td>
+                                                <td>Trung tâm mua sắm tập trung thuốc quốc gia</td>
+                                                <td style=" text-align: center;">09/10/2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="">6451/BYT-QLD</td>
+                                                <td>
+                                                    <a class="limitwords" target="_blank"
+                                                        href="https://emohbackup.moh.gov.vn/publish/home?documentId=9249">
+                                                        tăng cường quản lý đối với khí Oxy y tế
+                                                    </a>
+                                                </td>
+                                                <td> Bộ Y Tế</td>
+                                                <td style=" text-align: center;">06/10/2023</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- End table -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main left column -->
+                        <div id="row-left" class="order">
+                            <div class="wrap">
+                                <!-- row left menu -->
+                                <div class="menu">
+                                    <div class="container">
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/web/cchc/thong-tin">
+                                                    Cải cách hành chính Bộ Y tế
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/web/guest/tin-noi-bat">
+                                                    Tin tức sự kiện
+                                                </a>
+                                                <i class="icon-angle-right">
+                                                    <img
+                                                        src="https://www.freeiconspng.com/uploads/arrow-icon--myiconfinder-23.png">
+                                                </i>
+                                            </h3>
+                                            <div class="item-content">
+                                                <a href="https://moh.gov.vn/hoat-dong-cua-lanh-dao-bo">
+                                                    Hoạt động lãnh đạo bộ
+                                                </a>
+                                                <a href="https://moh.gov.vn/tin-tong-hop">
+                                                    Tin tổng hợp
+                                                </a>
+                                                <a href="https://moh.gov.vn/thong-tin-chi-dao-dieu-hanh">
+                                                    Thông tin chỉ đạo điều hành
+                                                </a>
+                                                <a href="https://moh.gov.vn/hoat-dong-cua-dia-phuong">
+                                                    Hoạt động của địa
+                                                    phương
+                                                </a>
+                                                <a href="https://moh.gov.vn/diem-tin-y-te">
+                                                    Điểm tin Y tế
+                                                </a>
+                                                <a
+                                                    href="https://moh.gov.vn/tong-hop-danh-gia-cap-do-dich-tai-dia-phuong">
+                                                    Chuyển đổi số y tế
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/luat-tiep-can-thong-tin">
+                                                    Thông tin tuyên truyền, phổ biến, hướng dẫn thực hiện pháp luật, chế
+                                                    độ, chính sách
+                                                </a>
+                                                <i class="icon-angle-right">
+                                                    <img
+                                                        src="https://www.freeiconspng.com/uploads/arrow-icon--myiconfinder-23.png">
+                                                </i>
+                                            </h3>
+                                            <div class="item-content">
+                                                <a
+                                                    href="https://moh.gov.vn/tuyen-truyen-huong-dan-thuc-hien-phap-luat-noi-chung">
+                                                    Tuyên truyền, hướng dẫn thực hiện pháp luật nói chung
+                                                </a>
+                                                <a href="https://moh.gov.vn/che-do-chinh-sach-linh-vuc-y-te">
+                                                    Chế độ chính sách lĩnh vực y tế
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a
+                                                    href="https://moh.gov.vn/chien-luong-dinh-huong-quy-hoach-ke-hoach-phat-trien">
+                                                    Chiến lược định hướng quy hoạch, kế hoạch phát triển
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/cong-khai-thong-tin-tai-chinh-doanh-nghiep">
+                                                    Công khai thông tin tài chính doanh nghiệp
+                                                </a>
+                                                <i class="icon-angle-right">
+                                                    <img
+                                                        src="https://www.freeiconspng.com/uploads/arrow-icon--myiconfinder-23.png">
+                                                </i>
+                                            </h3>
+                                            <div class="item-content">
+                                                <a
+                                                    href="https://moh.gov.vn/bao-cao-tinh-hinh-thuc-hien-sap-xep-doi-moi-doanh-nghiep-hang-nam">
+                                                    Báo cáo tình hình thực hiện sắp xếp đổi mới doanh nghiệp hàng năm
+                                                </a>
+                                                <a
+                                                    href="https://moh.gov.vn/cong-bo-kh-san-xuat-kinh-doanh-va-dau-tu-phat-trien-hang-nam-cua-doanh-nghiep">
+                                                    Công bố KH sản xuất kinh
+                                                    doanh và đầu tư phát triển hàng năm của doanh nghiệp </a>
+                                                <a
+                                                    href="https://moh.gov.vn/bao-cao-che-do-tien-luong-thuong-cua-doanh-nghiep">
+                                                    Báo cáo chế độ tiền lương, thưởng của doanh nghiệp </a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/cong-khai-ngan-sach">
+                                                    Công khai ngân sách Bộ Y tế
+                                                </a>
+                                                <i class="icon-angle-right">
+                                                    <img
+                                                        src="https://www.freeiconspng.com/uploads/arrow-icon--myiconfinder-23.png">
+                                                </i>
+                                            </h3>
+                                            <div class="item-content">
+                                                <a href="https://moh.gov.vn/hoat-dong-cua-lanh-dao-bo"> Dự toán ngân
+                                                    sách năm đã được cấp có thẩm quyền giao </a>
+                                                <a href="https://moh.gov.vn/cong-khai-quyet-toan"> Tình hình thực hiện
+                                                    dự toán
+                                                    ngân sách trong năm </a>
+                                                <a
+                                                    href="https://moh.gov.vn/quyet-toan-ngan-sach-da-duoc-cap-co-tham-quyen-phe-duyet">
+                                                    Quyết toán ngân sách đã được cấp có thẩm quyền phê duyệt </a>
+                                                <a href="https://moh.gov.vn/tong-hop-tinh-hinh-cong-khai"> Tổng hợp tình
+                                                    hình công khai </a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a
+                                                    href="https://moh.gov.vn/cong-khai-tiep-nhan-phan-bo-ong-gop-ho-tro-cong-tac-phong-chong-dich-covid-19">
+                                                    Công khai tiếp nhận, phân bổ đóng góp hỗ trợ công tác phòng, chống
+                                                    dịch COVID-19
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/cong-bo-thong-tin-lien-quan-den-linh-vuc-duoc">
+                                                    Công bố thông tin liên quan đến lĩnh vực dược
+                                                </a>
+                                                <i class="icon-angle-right">
+                                                    <img
+                                                        src="https://www.freeiconspng.com/uploads/arrow-icon--myiconfinder-23.png">
+                                                </i>
+                                            </h3>
+                                            <div class="item-content">
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/cong-bo-thong-tin-lien-quan-den-linh-vuc-duoc">
+                                                    Công bố thông
+                                                    tin liên quan đến lĩnh vực dược </a>
+                                                <a href="https://moh.gov.vn/web/guest/thu-hoi-chung-chi-hanh-nghe-duoc">
+                                                    Thu hồi chứng chỉ hành nghề
+                                                    dược </a>
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/thu-hoi-giay-chung-nhan-du-dieu-kien-kinh-doanh-duoc">
+                                                    Thu hồi giấy
+                                                    chứng nhận đủ điều kiện kinh doanh dược </a>
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/thong-tin-lien-quan-den-thuoc-nhap-khau">
+                                                    Thông tin liên
+                                                    quan đến thuốc nhập khẩu </a>
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/thong-tin-co-so-ban-buon-thuoc-cua-co-so-co-quyen-nhap-khau-nhung-khong-duoc-quyen-phan-phoi">
+                                                    Thông tin cơ sở
+                                                    bán buôn thuốc của cơ sở có quyền nhập khẩu nhưng không được quyền
+                                                    phân phối </a>
+                                                <a
+                                                    href="https://moh.gov.vn/web/guest/danh-muc-co-so-san-xuat-kinh-doanh-thuoc-nguyen-lieu-lam-thuoc">
+                                                    Danh mục cơ sở
+                                                    sản xuất kinh doanh thuốc, nguyên liệu làm thuốc </a>
+                                                <a
+                                                    href="https://moh.gov.vn/danh-muc-thuoc-chua-ap-ung-u-nhu-cau-ieu-tri-cong-bo-theo-ieu-66-nghi-inh-54/2017/n-cp">
+                                                    Danh mục thuốc
+                                                    chưa đáp ứng đủ nhu cầu điều trị công bố theo Điều 66 Nghị định
+                                                    54/2017/NĐ-CP </a>
+                                                <a href="https://moh.gov.vn/thong-tin-au-thau"> Thông tin đấu
+                                                    thầu </a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/thong-cao-bao-chi">
+                                                    Thông cáo báo chí
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/hoi-dap-y-te">
+                                                    Hỏi đáp y tế
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/thong-ke-y-te">
+                                                    Thống kê y tế
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3 class="title">
+                                                <a href="https://moh.gov.vn/lich-cong-tac">
+                                                    Lịch công tác
+                                                </a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- row left banner -->
+                                <div class="banner">
+                                    <div class="container">
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank"
+                                                href="https://moh.gov.vn/hoc-tap-va-lam-theo-tam-guong-dao-duc-ho-chi-minh">
+                                                <img src="https://moh.gov.vn/documents/20182/0/hcm-4792d3--1319265100359100.png"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://moh.gov.vn/dan-hoi-bo-truong-tra-loi">
+                                                <img src="https://moh.gov.vn/documents/20182/0/voinguoidan-4792d3--1319023538321200.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://congkhaigiadmec.moh.gov.vn/">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/c%C3%B4ng-khai-giy-ni%C3%AAm-y%E1%BA%BFt-ttbyt_2020--16119359446365846.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://congkhaiketquathau.moh.gov.vn/">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/10-02-2020-c%C3%B4ng-khai-k%E1%BA%BFt-qu%E1%BA%A3-%C4%91%E1%BA%A5u-th%E1%BA%A7u-1--1634108724145412.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="http://congdoanytevn.org.vn/">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/c%C3%B4ng-%C4%91o%C3%A0n-y-t%E1%BA%BF-vn--11976534906991738.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://moh.gov.vn/web/cong-doan/tin-tuc-su-kien">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/c%C3%B4ng-%C4%91o%C3%A0n-b%E1%BB%99-y-t%E1%BA%BF--11976434216667810.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://dichvucong.moh.gov.vn/">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/img_1410--18687525018307348.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://moh.gov.vn/danh-ba-dien-thoai">
+                                                <img src="https://moh.gov.vn/documents/20182/0/danhba-4792d3--1319161877044500.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank"
+                                                href="https://phapdien.moj.gov.vn/Pages/chi-tiet-bo-phap-dien.aspx">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/banner-cttdtpd-1--1315582238263862.png"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="http://moh.gov.vn/van-ban-huong-dan">
+                                                <img src="https://moh.gov.vn/documents/20182/192112/thaythuoc-3074934043639970--3135726528500486.png"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                        <div class="m-b" style="width: 100%;">
+                                            <a target="_blank" href="https://moh.gov.vn/doi-moi-phong-cach-thai-do">
+                                                <img src="https://moh.gov.vn/documents/20182/0/doimoi-4792d3--1318492401754000.jpg"
+                                                    style="width:100%; max-width:100%;">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <div class="news-heading m-b m-l">
+                                        <h2>
+                                            <a href="https://bom.so/EetP31">
+                                                LIÊN KẾT</a>
+                                        </h2>
+                                    </div>
+                                    <select id="icId" class="link-select">
+                                        <option value="0">---Trang liên kết---</option>
+                                        <option
+                                            value="https://moh.gov.vn:443/trang-lien-ket?p_p_id=linkpage_WAR_linkportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=row-3-column-1&p_p_col_pos=2&p_p_col_count=5&_linkpage_WAR_linkportlet_lcId=1">
+                                            Cơ quan Đảng, Quốc hội, Chính phủ </option>
+                                        <option
+                                            value="https://moh.gov.vn:443/trang-lien-ket?p_p_id=linkpage_WAR_linkportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=row-3-column-1&p_p_col_pos=2&p_p_col_count=5&_linkpage_WAR_linkportlet_lcId=2">
+                                            Các Bộ, Ngành </option>
+                                    </select>
+                                </div>
+                                <div class="vote m-l">
+                                    <div class="wrap">
+                                        <h2>Thăm dò ý kiến</h2>
+                                        <h3 class="text-bold">Theo bạn, nội dung cung cấp trên Cổng thông tin điện tử Bộ
+                                            Y tế:</h3>
+                                        <ul>
+                                            <li class="clear-fix">
+                                                <input name="vote-box-radio" type="radio">
+                                                <label>Rất đầy đủ</label>
+                                            </li>
+                                            <li class="clear-fix">
+                                                <input name="vote-box-radio" type="radio">
+                                                <label>Chưa đầy đủ</label>
+                                            </li>
+                                            <li class="clear-fix">
+                                                <input name="vote-box-radio" type="radio">
+                                                <label>Bình thường</label>
+                                            </li>
+                                        </ul>
+                                        <div class="button">
+                                            <button class="vote-choice">Bình chọn</button>
+                                            <button class="vote-choice">Kết quả</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nothing-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Category -->
+            <div id="category"></div>
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            <!-- Footer Navigation -->
+            <div id="footer-nav">
+                <div class="container">
+                    <a href="https://moh.gov.vn/">Trang chủ</a>
+                    <a href="#">Liên hệ</a>
+                </div>
+            </div>
+            <!-- Footer Content -->
+            <div id="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="text1">
+                            <p>
+                                Cổng thông tin điện tử Bộ Y Tế (MOH)
+                                <br>
+                                Bản quyền thuộc Bộ Y Tế
+                                <br>
+                                Số 138A Giảng Võ - Ba Đình - Hà Nội
+                                <br>
+                                ĐT: 0246.273.2.273 |Fax:0243.8464.051
+                            </p>
+                        </div>
+                        <div class="text2">
+                            <p>
+                                Email:banbientap@moh.gov.vn
+                                <br>
+                                Ghi rõ nguồn Cổng thông tin điện tử Bộ Y Tế hoặc http://moh.gov.vn khi phát hành lại
+                                thông tin
+                                <br>
+                                ĐT: 0246.273.2.273 |Fax:0243.8464.051
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
